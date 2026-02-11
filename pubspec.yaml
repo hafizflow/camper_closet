@@ -26,11 +26,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  build_runner: ^2.11.1
+  flutter_gen: ^5.12.0
 flutter:
   uses-material-design: true
   assets:
     - assets/language/
     - assets/images/
+    - assets/logos/
 
   # fonts:
   #   - family: Schyler
