@@ -41,14 +41,14 @@ class _HomeScreenState extends State<HomeScreen> {
             // Language Dropdown
             GetBuilder<LocalizationController>(
               builder: (localizationController) {
-                int _index = 0;
-                List<DropdownMenuItem<int>> _languageList = [];
+                int index0 = 0;
+                List<DropdownMenuItem<int>> languageList = [];
                 for (
                   int index = 0;
                   index < AppConstants.languages.length;
                   index++
                 ) {
-                  _languageList.add(
+                  languageList.add(
                     DropdownMenuItem(
                       value: index,
                       child: Text(AppConstants.languages[index].languageName),
@@ -56,12 +56,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                   if (AppConstants.languages[index].languageCode ==
                       localizationController.locale.languageCode) {
-                    _index = index;
+                    index0 = index;
                   }
                 }
                 return DropdownButton<int>(
-                  value: _index,
-                  items: _languageList,
+                  value: index0,
+                  items: languageList,
                   dropdownColor: Theme.of(context).cardColor,
                   icon: const Icon(Icons.keyboard_arrow_down),
                   elevation: 0,
