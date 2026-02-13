@@ -18,6 +18,8 @@ dependencies:
   flutter_spinkit:
   cached_network_image:
   shimmer: 
+  exui: ^1.0.9
+  smooth_page_indicator: ^2.0.1
 
 
 

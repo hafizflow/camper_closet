@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:flutter_extension/controller/splash_controller.dart';
+import 'package:flutter_extension/features/splash/controllers/splash_controller.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../controller/localization_controller.dart';
-import '../controller/theme_controller.dart';
-import '../data/model/language_model.dart';
-import '../util/app_constants.dart';
+import '../core/localization/localization_controller.dart';
+import '../core/theme/theme_controller.dart';
+import '../core/localization/language_model.dart';
+import '../core/constants/app_constants.dart';
 
 Future<Map<String, Map<String, String>>> init() async {
   // Core
