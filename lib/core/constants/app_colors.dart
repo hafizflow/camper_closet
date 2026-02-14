@@ -17,6 +17,8 @@ class AppColors {
 
   static Color lightGreyColor = const Color(0xFFE2E8F0);
   static Color buttonPrimaryColor = const Color(0xFF2F80ED);
+  static Color appLogoPrimaryColor = const Color(0xFF1F2937);
+  static Color secondaryColor = const Color(0xFF202020);
 
   static BoxShadow shadow = BoxShadow(
     blurRadius: 4,

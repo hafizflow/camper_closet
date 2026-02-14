@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/core/constants/app_sizes.dart';
-import 'package:flutter_extension/features/onboarding/controllers/onboarding_controller.dart';
 import 'package:flutter_extension/core/constants/app_colors.dart';
-import 'package:flutter_extension/shared/widgets/custom_button.dart';
+import 'package:flutter_extension/shared/utils/style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class IntroComponent extends StatelessWidget {
   final String title;
@@ -50,25 +48,20 @@ class IntroComponent extends StatelessWidget {
           right: AppSizes.defaultPadding.w,
           child: Text(
             title,
-            style: TextStyle(
+            style: AppStyles.customSize(
               fontSize: 30.sp,
               fontWeight: FontWeight.w700,
-              color: Colors.white,
             ),
             textAlign: TextAlign.center,
           ),
         ),
         Positioned(
-          bottom: 189.85.h,
+          bottom: 190.h,
           left: AppSizes.defaultPadding.w,
           right: AppSizes.defaultPadding.w,
           child: Text(
             description,
-            style: TextStyle(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.lightGreyColor,
-            ),
+            style: AppStyles.h3(color: AppColors.lightGreyColor),
             textAlign: TextAlign.center,
           ),
         ),

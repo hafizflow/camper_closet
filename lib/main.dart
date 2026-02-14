@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_extension/core/routes/app_pages.dart';
 import 'package:flutter_extension/core/routes/app_routes.dart';
 import 'package:flutter_extension/core/theme/dark_theme.dart';
@@ -14,6 +15,12 @@ import 'helper/get_di.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   Map<String, Map<String, String>> languages = await di.init();
   runApp(MyApp(languages: languages));
 }
@@ -21,7 +28,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.languages});
   final Map<String, Map<String, String>> languages;
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(

@@ -6,6 +6,7 @@ import 'package:flutter_extension/features/onboarding/models/onboarding_model.da
 import 'package:get/get.dart';
 
 class OnboardingController extends GetxController {
+  var isLoggedIn = false;
   final PageController pageController = PageController();
 
   final List<OnboardingModel> pages = [
@@ -40,7 +41,11 @@ class OnboardingController extends GetxController {
         curve: Curves.ease,
       );
     } else {
-      Get.offNamed(AppPages.homeScreen);
+      if (isLoggedIn) {
+        Get.offNamed(AppPages.homeScreen);
+      } else {
+        Get.offNamed(AppPages.welcomeScreen);
+      }
     }
   }
 
