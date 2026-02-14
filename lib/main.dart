@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/routes/app_pages.dart';
+import 'package:flutter_extension/core/routes/app_routes.dart';
 import 'package:flutter_extension/core/theme/dark_theme.dart';
 import 'package:flutter_extension/core/theme/light_theme.dart';
 import 'package:flutter_extension/core/constants/app_constants.dart';
@@ -9,7 +11,6 @@ import 'package:get/get.dart';
 import 'core/localization/localization_controller.dart';
 import 'core/theme/theme_controller.dart';
 import 'helper/get_di.dart' as di;
-import 'helper/route_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
                   ),
                   transitionDuration: const Duration(milliseconds: 500),
                   getPages: AppRoutes.page,
-                  initialRoute: AppRoutes.splashScreen,
+                  initialRoute: AppPages.splashScreen,
                 );
               },
             );

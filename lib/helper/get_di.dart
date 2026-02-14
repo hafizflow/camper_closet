@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:flutter_extension/features/onboarding/controllers/onboarding_controller.dart';
 import 'package:flutter_extension/features/splash/controllers/splash_controller.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +18,7 @@ Future<Map<String, Map<String, String>>> init() async {
   Get.lazyPut(() => ThemeController(sharedPreferences: Get.find()));
   Get.lazyPut(() => LocalizationController(sharedPreferences: Get.find()));
   Get.lazyPut(() => SplashController());
+  Get.lazyPut<OnboardingController>(() => OnboardingController());
 
   //Retrieving localized data
   Map<String, Map<String, String>> languages = {};

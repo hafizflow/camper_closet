@@ -24,11 +24,12 @@ class AppStyles {
     Color? color,
     FontWeight? fontWeight,
     double? letterSpacing,
+    double? fontSize,
 
   }) {
     return TextStyle(
         color: color,
-        fontSize: 18.sp,
+        fontSize: fontSize ?? 18.sp,
         letterSpacing: letterSpacing,
         fontWeight: fontWeight ?? FontWeight.w400);
   }

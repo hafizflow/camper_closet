@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/constants/app_logos.dart';
 import 'package:flutter_extension/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_extension/shared/utils/logos.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -25,11 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SvgPicture.asset(
-          Logos.applogo,
-          width: 264.w,
-          height: 194.48484802246094.h,
-        ),
+        child: SvgPicture.asset(AppLogos.applogo, width: 264.w, height: 195.h),
       ),
     );
   }

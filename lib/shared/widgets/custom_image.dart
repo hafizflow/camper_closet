@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_extension/shared/utils/images.dart';
+import 'package:flutter_extension/core/constants/app_images.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CustomImage extends StatelessWidget {
@@ -34,12 +34,11 @@ class CustomImage extends StatelessWidget {
         ),
       ),
       errorWidget: (context, url, error) => Image.asset(
-        Images.placeholder,
+        AppImages.placeholder,
         height: height,
         width: width,
         fit: fit,
       ),
-     
     );
   }
 }
