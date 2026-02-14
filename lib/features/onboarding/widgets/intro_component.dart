@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/core/constants/app_sizes.dart';
 import 'package:flutter_extension/core/constants/app_colors.dart';
-import 'package:flutter_extension/shared/utils/style.dart';
+import 'package:flutter_extension/shared/utils/app_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IntroComponent extends StatelessWidget {

@@ -8,7 +8,7 @@ class AppStyles {
     FontWeight? fontWeight,
     double? letterSpacing,
   }) {
-    return GoogleFonts.inter(
+    return GoogleFonts.sora(
       color: color ?? Colors.white,
       fontSize: 24.sp,
       letterSpacing: letterSpacing,
@@ -21,7 +21,7 @@ class AppStyles {
     FontWeight? fontWeight,
     double? letterSpacing,
   }) {
-    return GoogleFonts.inter(
+    return GoogleFonts.sora(
       color: color ?? Colors.white,
       fontSize: 20.sp,
       letterSpacing: letterSpacing,
@@ -35,7 +35,7 @@ class AppStyles {
     double? letterSpacing,
     double? fontSize,
   }) {
-    return GoogleFonts.inter(
+    return GoogleFonts.sora(
       color: color ?? Colors.white,
       fontSize: fontSize ?? 18.sp,
       letterSpacing: letterSpacing,
@@ -49,7 +49,7 @@ class AppStyles {
     double? letterSpacing,
     double? height,
   }) {
-    return GoogleFonts.inter(
+    return GoogleFonts.sora(
       fontSize: 16.sp,
       color: color ?? Colors.white,
       height: height,
@@ -64,7 +64,7 @@ class AppStyles {
     double? letterSpacing,
     double? height,
   }) {
-    return GoogleFonts.inter(
+    return GoogleFonts.sora(
       fontSize: 14.sp,
       color: color ?? Colors.white,
       height: height,
@@ -79,7 +79,7 @@ class AppStyles {
     double? letterSpacing,
     double? height,
   }) {
-    return GoogleFonts.inter(
+    return GoogleFonts.sora(
       fontSize: 12.sp,
       color: color ?? Colors.white,
       height: height,
@@ -96,7 +96,7 @@ class AppStyles {
     double? height,
     FontWeight? fontWeight,
   }) {
-    return GoogleFonts.inter(
+    return GoogleFonts.sora(
       fontWeight: fontWeight ?? FontWeight.w500,
       color: color ?? Colors.white,
       fontSize: fontSize,
