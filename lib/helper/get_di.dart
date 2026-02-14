@@ -4,7 +4,6 @@ import 'package:flutter_extension/features/login/controllers/login_controller.da
 import 'package:flutter_extension/features/onboarding/controllers/onboarding_controller.dart';
 import 'package:flutter_extension/features/signup/controllers/signup_controller.dart';
 import 'package:flutter_extension/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_extension/shared/widgets/custom_checkbox.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../core/localization/localization_controller.dart';

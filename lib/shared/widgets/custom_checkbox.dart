@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-
-// class CheckboxController extends GetxController {
-//   var isChecked = false.obs;
-
-//   void toggle() {
-//     isChecked.value = !isChecked.value;
-//   }
-// }
 
 class CustomCheckbox extends StatelessWidget {
   final bool value;
