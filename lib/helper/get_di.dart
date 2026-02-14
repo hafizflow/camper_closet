@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter_extension/features/login/controllers/login_controller.dart';
 import 'package:flutter_extension/features/onboarding/controllers/onboarding_controller.dart';
+import 'package:flutter_extension/features/signup/controllers/signup_controller.dart';
 import 'package:flutter_extension/features/splash/controllers/splash_controller.dart';
 import 'package:flutter_extension/shared/widgets/custom_checkbox.dart';
 import 'package:get/get.dart';
@@ -21,8 +22,8 @@ Future<Map<String, Map<String, String>>> init() async {
   Get.lazyPut(() => LocalizationController(sharedPreferences: Get.find()));
   Get.lazyPut(() => SplashController());
   Get.lazyPut(() => OnboardingController());
-  Get.lazyPut(() => CheckboxController());
-  Get.lazyPut(() => LoginController());
+  Get.lazyPut(() => LoginController(), fenix: true);
+  Get.lazyPut(() => SignupController(), fenix: true);
 
   //Retrieving localized data
   Map<String, Map<String, String>> languages = {};

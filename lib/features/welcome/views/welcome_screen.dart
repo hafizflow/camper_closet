@@ -46,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 155.h),
             CustomButton(
-              onTap: () => Get.offNamed(AppPages.signupScreen),
+              onTap: () => Get.toNamed(AppPages.signupScreen),
               text: "Create Account",
             ),
             SizedBox(height: 21.h),
@@ -63,7 +63,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => Get.offNamed(AppPages.loginScreen),
+                  onTap: () => Get.toNamed(AppPages.loginScreen),
                   child: Container(
                     width: 30.w,
                     height: 30.h,

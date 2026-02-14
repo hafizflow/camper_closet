@@ -19,12 +19,11 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<LoginController>();
-    
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
-            key: controller.formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,6 +63,7 @@ class LoginScreen extends StatelessWidget {
                       onValidationError: (error) {
                         controller.emailError.value = error ?? '';
                       },
+                      textInputAction: TextInputAction.next,
                     ),
                     // Error Text - Only shown when there's an error
                     Obx(
@@ -100,6 +100,7 @@ class LoginScreen extends StatelessWidget {
                       onValidationError: (error) {
                         controller.passwordError.value = error ?? '';
                       },
+                      textInputAction: TextInputAction.done,
                     ),
                     // Error Text - Only shown when there's an error
                     Obx(
@@ -150,12 +151,26 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 30.h),
-                CustomButton(
-                  onTap: controller.validateAndLogin,
-                  text: 'Sign In',
-                  fontSize: 18.sp,
-                  height: 44.h,
-                  radius: 16.r,
+
+                // CustomButton(
+                //   onTap: controller.validateAndLogin,
+                //   text: 'Sign In',
+                //   fontSize: 18.sp,
+                //   height: 44.h,
+                //   radius: 16.r,
+                // ),
+                Obx(
+                  () => CustomButton(
+                    onTap: controller.isLoading.value
+                        ? null
+                        : controller.validateAndLogin,
+                    text: controller.isLoading.value
+                        ? 'Signing In...'
+                        : 'Sign In',
+                    fontSize: 18.sp,
+                    height: 44.h,
+                    radius: 16.r,
+                  ),
                 ),
                 SizedBox(height: 30.h),
                 Row(

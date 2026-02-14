@@ -20,7 +20,8 @@ class CustomTextField extends StatefulWidget {
   final FormFieldValidator? validator;
   final bool isPassword;
   final bool? isEmail;
-  final Function(String?)? onValidationError; // New callback
+  final Function(String?)? onValidationError;
+  final TextInputAction? textInputAction;
 
   const CustomTextField({
     super.key,
@@ -36,6 +37,7 @@ class CustomTextField extends StatefulWidget {
     this.fillColor,
     this.labelText,
     this.isPassword = false,
+    this.textInputAction,
   });
 
   @override
@@ -111,12 +113,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       obscuringCharacter: widget.obscure ?? '*',
+      textInputAction: widget.textInputAction,
       validator: _validateField,
       cursorColor: AppColors.primaryColor,
       obscureText: _obscureText,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: AutovalidateMode.disabled,
+      onChanged: (value) {
+        if (widget.onValidationError != null) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            widget.onValidationError?.call(null);
+          });
+        }
+      },
       style: AppStyles.h4(color: AppColors.darkColor),
       decoration: InputDecoration(
+        isDense: true,
+        contentPadding: EdgeInsets.all(12.w),
         fillColor: widget.fillColor,
         prefixIcon: widget.prefixIcon != null
             ? _buildSvgIcon(widget.prefixIcon!, padding: 10.w)

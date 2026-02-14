@@ -11,4 +11,6 @@ class AppLogos {
   static const String mail = 'assets/logos/maillogo.svg';
   static const String googlelogo = 'assets/logos/googlelogo.svg';
   static const String applelogo = 'assets/logos/applelogo.svg';
+  static const String calendar = 'assets/logos/calendar.svg';
+  static const String person = 'assets/logos/person.svg';
 }
