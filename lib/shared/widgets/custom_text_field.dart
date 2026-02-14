@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/constants/app_logos.dart';
+import 'package:flutter_extension/shared/utils/app_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_constants.dart';
@@ -7,47 +11,98 @@ import '../../core/constants/app_constants.dart';
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType? keyboardType;
-  final bool? isObscureText;
   final String? obscure;
-  final Color? filColor;
-  final Widget? prefixIcon;
+  final Color? fillColor;
+  final String? prefixIcon;
   final String? labelText;
   final String? hintText;
-  final double? contentPaddingHorizontal;
-  final double? contentPaddingVertical;
   final Widget? suffixIcon;
   final FormFieldValidator? validator;
   final bool isPassword;
   final bool? isEmail;
+  final Function(String?)? onValidationError; // New callback
 
-  const CustomTextField(
-      {super.key,
-      this.contentPaddingHorizontal,
-      this.contentPaddingVertical,
-      this.hintText,
-      this.prefixIcon,
-      this.suffixIcon,
-      this.validator,
-      this.isEmail,
-      required this.controller,
-      this.keyboardType = TextInputType.text,
-      this.isObscureText = false,
-      this.obscure = '*',
-      this.filColor,
-      this.labelText,
-      this.isPassword = false});
+  const CustomTextField({
+    super.key,
+    this.hintText,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.validator,
+    this.isEmail,
+    this.onValidationError,
+    required this.controller,
+    this.keyboardType = TextInputType.text,
+    this.obscure = '*',
+    this.fillColor,
+    this.labelText,
+    this.isPassword = false,
+  });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  bool obscureText = true;
+  late bool _obscureText;
 
-  void toggle() {
+  @override
+  void initState() {
+    super.initState();
+    _obscureText = widget.isPassword;
+  }
+
+  void _toggleObscureText() {
     setState(() {
-      obscureText = !obscureText;
+      _obscureText = !_obscureText;
     });
+  }
+
+  String? _validateField(String? value) {
+    String? error;
+
+    if (widget.validator != null) {
+      error = widget.validator!(value);
+    } else {
+      if (value == null || value.isEmpty) {
+        error = "Please enter ${widget.hintText?.toLowerCase() ?? 'value'}";
+      } else if (widget.isEmail == true) {
+        if (!AppConstants.emailValidator.hasMatch(value)) {
+          error = "Please check your email!";
+        }
+      } else if (widget.isPassword) {
+        if (!AppConstants.passwordValidator.hasMatch(value)) {
+          error = "Insecure password detected.";
+        }
+      }
+    }
+
+    // Notify parent widget about validation error
+    widget.onValidationError?.call(error);
+    return error;
+  }
+
+  Widget _buildSuffixIcon() {
+    if (widget.isPassword) {
+      return GestureDetector(
+        onTap: _toggleObscureText,
+        child: _buildSvgIcon(
+          _obscureText ? AppLogos.eyelogo : AppLogos.eyecloselogo,
+        ),
+      );
+    }
+    return widget.suffixIcon ?? const SizedBox.shrink();
+  }
+
+  Widget _buildSvgIcon(String icon, {double padding = 12}) {
+    return SvgPicture.asset(
+      icon,
+      width: 20.w,
+      height: 20.h,
+      colorFilter: ColorFilter.mode(
+        AppColors.buttonPrimaryColor,
+        BlendMode.srcIn,
+      ),
+    ).paddingAll(padding.w);
   }
 
   @override
@@ -55,55 +110,38 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.keyboardType,
-      obscuringCharacter: widget.obscure!,
-      // validator: widget.validator,
-      validator: widget.validator ??
-          (value) {
-            if (widget.isEmail == null) {
-              if (value!.isEmpty) {
-                return "Please enter ${widget.hintText!.toLowerCase()}";
-              } else if (widget.isPassword) {
-                bool data = AppConstants.passwordValidator.hasMatch(value);
-                if (value.isEmpty) {
-                  return "Please enter ${widget.hintText!.toLowerCase()}";
-                } else if (!data) {
-                  return "Insecure password detected.";
-                }
-              }
-            } else {
-              bool data = AppConstants.emailValidator.hasMatch(value!);
-              if (value.isEmpty) {
-                return "Please enter ${widget.hintText!.toLowerCase()}";
-              } else if (!data) {
-                return "Please check your email!";
-              }
-            }
-            return null;
-          },
+      obscuringCharacter: widget.obscure ?? '*',
+      validator: _validateField,
       cursorColor: AppColors.primaryColor,
-      obscureText: widget.isPassword ? obscureText : false,
-      style: TextStyle(color: Colors.white, fontSize: 16.sp),
+      obscureText: _obscureText,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      style: AppStyles.h4(color: AppColors.darkColor),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(
-            horizontal: widget.contentPaddingHorizontal ?? 20.w,
-            vertical: widget.contentPaddingVertical ?? 20.w),
-        fillColor: widget.filColor,
-        prefixIcon: widget.prefixIcon,
-        suffixIcon: widget.isPassword
-            ? GestureDetector(
-                onTap: toggle,
-                child: _suffixIcon(
-                    obscureText ? Icons.visibility_off : Icons.visibility),
-              )
-            : widget.suffixIcon,
+        fillColor: widget.fillColor,
+        prefixIcon: widget.prefixIcon != null
+            ? _buildSvgIcon(widget.prefixIcon!, padding: 10.w)
+            : null,
+        suffixIcon: _buildSuffixIcon(),
         prefixIconConstraints: BoxConstraints(minHeight: 24.w, minWidth: 24.w),
         labelText: widget.labelText,
         hintText: widget.hintText,
+        errorStyle: const TextStyle(
+          height: 0,
+          fontSize: 0,
+        ), // Hide default error
+        border: _buildBorder(AppColors.buttonPrimaryColor, 1.w),
+        hintStyle: TextStyle(color: AppColors.hintColor, fontSize: 16.sp),
+        errorBorder: _buildBorder(AppColors.errorColor, 1.w),
+        enabledBorder: _buildBorder(AppColors.buttonPrimaryColor, 1.w),
+        focusedBorder: _buildBorder(AppColors.buttonPrimaryColor, 1.5.w),
       ),
     );
   }
 
-  _suffixIcon(IconData icon) {
-    return Padding(padding: const EdgeInsets.all(12.0), child: Icon(icon));
+  OutlineInputBorder _buildBorder(Color color, double width) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(16.r),
+      borderSide: BorderSide(color: color, width: width),
+    );
   }
 }

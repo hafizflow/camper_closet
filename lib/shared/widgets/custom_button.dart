@@ -17,6 +17,7 @@ class CustomButton extends StatelessWidget {
     this.loading = false,
     this.width,
     this.height,
+    this.fontSize,
   });
   final Function() onTap;
   final String text;
@@ -27,6 +28,7 @@ class CustomButton extends StatelessWidget {
   final double? radius;
   final EdgeInsetsGeometry margin;
   final TextStyle? textStyle;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class CustomButton extends StatelessWidget {
                 style:
                     textStyle ??
                     AppStyles.h3(
-                      fontSize: 20.sp,
+                      fontSize: fontSize ?? 20.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),

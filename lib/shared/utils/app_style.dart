@@ -54,7 +54,7 @@ class AppStyles {
       color: color ?? Colors.white,
       height: height,
       letterSpacing: letterSpacing,
-      fontWeight: fontWeight ?? FontWeight.w500,
+      fontWeight: fontWeight ?? FontWeight.w400,
     );
   }
 
@@ -84,7 +84,7 @@ class AppStyles {
       color: color ?? Colors.white,
       height: height,
       letterSpacing: letterSpacing,
-      fontWeight: fontWeight ?? FontWeight.w500,
+      fontWeight: fontWeight ?? FontWeight.w400,
     );
   }
 

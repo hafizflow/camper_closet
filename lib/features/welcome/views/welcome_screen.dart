@@ -31,7 +31,7 @@ class WelcomeScreen extends StatelessWidget {
               style: AppStyles.customSize(
                 fontSize: 52.sp,
                 fontWeight: FontWeight.w700,
-                color: AppColors.appLogoPrimaryColor,
+                color: AppColors.primaryText,
               ),
             ),
             SizedBox(height: 13.h),
@@ -46,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 155.h),
             CustomButton(
-              onTap: () => Get.toNamed(AppPages.loginScreen),
+              onTap: () => Get.offNamed(AppPages.signupScreen),
               text: "Create Account",
             ),
             SizedBox(height: 21.h),
@@ -58,12 +58,12 @@ class WelcomeScreen extends StatelessWidget {
                   "I already have an account? ",
                   style: AppStyles.customSize(
                     fontSize: 15.sp,
-                    color: AppColors.appLogoPrimaryColor,
+                    color: AppColors.primaryText,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => Get.toNamed(AppPages.signupScreen),
+                  onTap: () => Get.offNamed(AppPages.loginScreen),
                   child: Container(
                     width: 30.w,
                     height: 30.h,

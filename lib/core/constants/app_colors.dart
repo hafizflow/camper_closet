@@ -8,7 +8,7 @@ class AppColors {
   static Color borderColor = const Color(0xFF2683EB);
   static Color textColor = const Color(0xFFFFFFFF);
   static Color subTextColor = const Color(0xFFE8E8E8);
-  static Color hintColor = const Color(0xFFB5B5B5);
+  static Color hintColor = const Color(0xFF6B7280);
   static Color greyColor = const Color(0xFFB5B5B5);
   static Color fillColor = const Color(0xFFE9F3FD).withValues(alpha: 0.3);
   static Color dividerColor = const Color(0xFF555555);
@@ -17,8 +17,13 @@ class AppColors {
 
   static Color lightGreyColor = const Color(0xFFE2E8F0);
   static Color buttonPrimaryColor = const Color(0xFF2F80ED);
-  static Color appLogoPrimaryColor = const Color(0xFF1F2937);
   static Color secondaryColor = const Color(0xFF202020);
+  static Color errorColor = const Color(0xFFE50E1A);
+  static Color darkColor = const Color(0xFF2C2C2C);
+  static Color greyDivider = const Color(0xFFCACACA);
+
+  static Color primaryText = const Color(0xFF1F2937);
+  static Color secondaryText = const Color(0xFF6B7280);
 
   static BoxShadow shadow = BoxShadow(
     blurRadius: 4,
