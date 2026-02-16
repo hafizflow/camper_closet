@@ -15,6 +15,7 @@ import 'package:flutter_extension/shared/widgets/custom_button.dart';
 import 'package:flutter_extension/shared/widgets/custom_checkbox.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -39,7 +40,6 @@ class SignupScreen extends StatelessWidget {
                   color: AppColors.primaryText,
                 ),
               ),
-              SizedBox(height: 10.h),
               Text(
                 "Please sign up your account",
                 style: AppStyles.h5(color: AppColors.secondaryText),
@@ -48,7 +48,7 @@ class SignupScreen extends StatelessWidget {
 
               // Full Name Field
               LabeledTextField(
-                label: "Full Name",
+                label: "Name",
                 controller: controller.fullNameController,
                 prefixIcon: AppLogos.person,
                 hintText: "Enter your full name",
@@ -137,7 +137,7 @@ class SignupScreen extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                    onTap: () => Get.toNamed(AppPages.loginScreen),
+                    onTap: () => Get.offNamed(AppPages.loginScreen),
                     child: Text(
                       "Sign In",
                       style: AppStyles.customSize(
@@ -171,7 +171,7 @@ class SignupScreen extends StatelessWidget {
         Expanded(
           child: RichText(
             text: TextSpan(
-              style: AppStyles.customSize(
+              style: GoogleFonts.inter(
                 color: AppColors.primaryText,
                 fontSize: 12.sp,
               ),
@@ -179,18 +179,20 @@ class SignupScreen extends StatelessWidget {
                 const TextSpan(text: "I agree with "),
                 TextSpan(
                   text: "terms & conditions ",
-                  style: AppStyles.customSize(
+                  style: GoogleFonts.inter(
                     color: AppColors.buttonPrimaryColor,
                     fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
                   ),
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
                 const TextSpan(text: "and "),
                 TextSpan(
                   text: "privacy policy",
-                  style: AppStyles.customSize(
+                  style: GoogleFonts.inter(
                     color: AppColors.buttonPrimaryColor,
                     fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
                   ),
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),

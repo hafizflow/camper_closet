@@ -36,7 +36,7 @@ class LabeledTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(label, style: AppStyles.h6(color: AppColors.primaryText)),
-        SizedBox(height: 5.h),
+        SizedBox(height: 3.h),
         CustomTextField(
           controller: controller,
           prefixIcon: prefixIcon,

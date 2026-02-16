@@ -88,9 +88,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () {
-                        // Navigate to forgot password
-                      },
+                      onTap: () => Get.toNamed(AppPages.requestPasswordScreen),
                       child: Text(
                         "Forgot Password?",
                         style: AppStyles.customSize(
@@ -134,7 +132,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () => Get.toNamed(AppPages.signupScreen),
+                      onTap: () => Get.offNamed(AppPages.signupScreen),
                       child: Text(
                         "Sign Up",
                         style: AppStyles.customSize(
