@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class ResetPasswordController extends GetxController {
@@ -63,8 +64,7 @@ class ResetPasswordController extends GetxController {
         colorText: Colors.white,
       );
 
-      // TODO: Navigate to login or appropriate screen
-      // Get.offAllNamed(AppRoutes.login);
+      Get.offNamed(AppPages.backTologinScreen);
     } catch (e) {
       Get.snackbar(
         'Error',
