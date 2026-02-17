@@ -1,8 +1,10 @@
 import 'package:flutter_extension/core/routes/app_pages.dart';
 import 'package:flutter_extension/features/forget_password/controllers/otp_controller.dart';
 import 'package:flutter_extension/features/forget_password/controllers/request_password_controller.dart';
+import 'package:flutter_extension/features/forget_password/controllers/reset_password_controller.dart';
 import 'package:flutter_extension/features/forget_password/views/otp_screen.dart';
 import 'package:flutter_extension/features/forget_password/views/request_password_screen.dart';
+import 'package:flutter_extension/features/forget_password/views/reset_password_screen.dart';
 import 'package:flutter_extension/features/home/controllers/home_controller.dart';
 import 'package:flutter_extension/features/home/views/home_screen.dart';
 import 'package:flutter_extension/features/login/controllers/login_controller.dart';
@@ -63,12 +65,18 @@ class AppRoutes {
         Get.lazyPut(() => RequestPasswordController());
       }),
     ),
-
     GetPage(
       name: AppPages.otpScreen,
       page: () => const OtpScreen(),
       binding: BindingsBuilder(() {
         Get.lazyPut(() => OtpController());
+      }),
+    ),
+    GetPage(
+      name: AppPages.resetPasswordScreen,
+      page: () => const ResetPasswordScreen(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut(() => ResetPasswordController());
       }),
     ),
   ];

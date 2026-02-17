@@ -159,7 +159,8 @@ class SignupScreen extends StatelessWidget {
 
   Widget _termsAndPolicy(SignupController controller) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Obx(
           () => CustomCheckbox(

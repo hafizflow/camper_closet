@@ -1,6 +1,7 @@
 // features/otp/controllers/otp_controller.dart
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class OtpController extends GetxController {
@@ -96,8 +97,7 @@ class OtpController extends GetxController {
           colorText: Colors.green,
         );
 
-        // Navigate to next screen (e.g., reset password screen)
-        // Get.offNamed('/reset-password');
+        Get.offNamed(AppPages.resetPasswordScreen);
       } else {
         // OTP is incorrect
         Get.snackbar(
