@@ -11,10 +11,9 @@ import 'package:flutter_extension/features/nav/controllers/nav_controller.dart';
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
 
-  // How much the scan button overflows above the bar
   static const double _fabSize = 60.0;
   static const double _fabOverlap = 20.0;
-  static const double _barHeight = 64.0;
+  static const double _barHeight = 66.0;
 
   @override
   Widget build(BuildContext context) {

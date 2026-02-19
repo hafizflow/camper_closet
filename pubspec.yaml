@@ -22,6 +22,7 @@ dependencies:
   smooth_page_indicator: ^2.0.1
   google_fonts: ^8.0.1
   pinput: ^6.0.2
+  flutter_launcher_icons: ^0.14.4
     
 
 
@@ -42,7 +43,6 @@ flutter:
 
 
 flutter_native_splash:
-  android: true
   ios: true
 
   color: "#ffffff"
