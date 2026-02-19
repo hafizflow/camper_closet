@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
                   ),
                   transitionDuration: const Duration(milliseconds: 500),
                   getPages: AppRoutes.page,
-                  initialRoute: AppPages.splashScreen,
+                  initialRoute: AppPages.navbarScreen,
                 );
               },
             );

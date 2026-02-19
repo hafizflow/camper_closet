@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Get.find<SplashController>().jumpNextScreen();
     });
   }
@@ -25,11 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SvgPicture.asset(
-          AppLogos.splashlogo,
-          width: 264.w,
-          height: 195.h,
-        ),
+        child: SvgPicture.asset(AppLogos.splashlogo, width: 264, height: 195),
       ),
     );
   }

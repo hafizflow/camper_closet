@@ -10,6 +10,8 @@ import 'package:flutter_extension/features/home/controllers/home_controller.dart
 import 'package:flutter_extension/features/home/views/home_screen.dart';
 import 'package:flutter_extension/features/login/controllers/login_controller.dart';
 import 'package:flutter_extension/features/login/views/login_screen.dart';
+import 'package:flutter_extension/features/nav/controllers/nav_controller.dart';
+import 'package:flutter_extension/features/nav/views/nav_screen.dart';
 import 'package:flutter_extension/features/onboarding/controllers/onboarding_controller.dart';
 import 'package:flutter_extension/features/onboarding/views/onboarding_screen.dart';
 import 'package:flutter_extension/features/signup/controllers/signup_controller.dart';
@@ -30,6 +32,16 @@ class AppRoutes {
         Get.lazyPut(() => SplashController());
       }),
     ),
+
+    GetPage(
+      name: AppPages.navbarScreen,
+      page: () => const NavScreen(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut(() => NavController());
+        Get.lazyPut(() => HomeController());
+      }),
+    ),
+
     GetPage(
       name: AppPages.homeScreen,
       page: () => const HomeScreen(),

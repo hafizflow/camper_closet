@@ -13,4 +13,11 @@ class AppLogos {
   static const String applelogo = 'assets/logos/applelogo.svg';
   static const String calendar = 'assets/logos/calendar.svg';
   static const String person = 'assets/logos/person.svg';
+
+  static const String home = 'assets/logos/home.svg';
+  static const String closet = 'assets/logos/closet.svg';
+  static const String navcalendar = 'assets/logos/navcalendar.svg';
+  static const String notification = 'assets/logos/calendar.svg';
+  static const String user = 'assets/logos/user.svg';
+  static const String scan = 'assets/logos/scan.svg';
 }

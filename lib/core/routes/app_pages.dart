@@ -11,4 +11,6 @@ class AppPages {
   static String resetPasswordScreen = "/reset_password_screen";
   static String otpScreen = "/otp_screen";
   static String backTologinScreen = "/back_to_login_screen";
+
+  static String navbarScreen = "/navbar_screen";
 }

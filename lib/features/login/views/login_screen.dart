@@ -23,6 +23,7 @@ class LoginScreen extends StatelessWidget {
     final controller = Get.find<LoginController>();
 
     return Scaffold(
+      // resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
