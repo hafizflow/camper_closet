@@ -34,6 +34,31 @@ class _HomeScreenState extends State<HomeScreen> {
               const ActiveListCard(),
               SizedBox(height: 30.h),
               const MyClosetCard(),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Templates',
+                        style: GoogleFonts.sora(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.primaryText,
+                        ),
+                      ),
+                      const Spacer(),
+                      Text(
+                        'View All',
+                        style: GoogleFonts.inter(
+                          fontSize: 14.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ).paddingHorizontal(24.w),
         ),
