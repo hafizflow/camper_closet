@@ -20,4 +20,6 @@ class AppLogos {
   static const String notification = 'assets/logos/calendar.svg';
   static const String user = 'assets/logos/user.svg';
   static const String scan = 'assets/logos/scan.svg';
+  static const String homelogo = 'assets/logos/homelogo.svg';
+  static const String homenotification = 'assets/logos/notification.svg';
 }

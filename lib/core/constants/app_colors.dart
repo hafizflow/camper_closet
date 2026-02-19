@@ -18,7 +18,7 @@ class AppColors {
   static Color lightGreyColor = const Color(0xFFE2E8F0);
   static Color buttonPrimaryColor = const Color(0xFF2F80ED);
   static Color secondaryColor = const Color(0xFF202020);
-  static Color errorColor = const Color(0xFFE50E1A);
+  static Color errorColor = const Color(0xFFE50E1A); 
   static Color darkColor = const Color(0xFF2C2C2C);
   static Color greyDivider = const Color(0xFFCACACA);
 

@@ -1,12 +1,13 @@
+import 'package:exui/exui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_extension/core/constants/app_colors.dart';
+import 'package:flutter_extension/core/constants/app_logos.dart';
 import 'package:flutter_extension/features/home/controllers/home_controller.dart';
-import 'package:flutter_extension/core/localization/localization_controller.dart';
-import 'package:flutter_extension/core/theme/theme_controller.dart';
-import 'package:flutter_extension/core/constants/app_constants.dart';
-import 'package:flutter_extension/shared/widgets/custom_button.dart';
-import 'package:flutter_extension/shared/widgets/custom_image.dart';
+import 'package:flutter_extension/features/home/widgets/active_list_card.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,85 +22,95 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Screen')),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Home Screen'),
-
-            // Theme Switcher
-            Switch(
-              value: Get.find<ThemeController>().darkTheme,
-              onChanged: (v) {
-                Get.find<ThemeController>().toggleTheme();
-              },
-            ),
-            const SizedBox(height: 20),
-
-            // Language Dropdown
-            GetBuilder<LocalizationController>(
-              builder: (localizationController) {
-                int index0 = 0;
-                List<DropdownMenuItem<int>> languageList = [];
-                for (
-                  int index = 0;
-                  index < AppConstants.languages.length;
-                  index++
-                ) {
-                  languageList.add(
-                    DropdownMenuItem(
-                      value: index,
-                      child: Text(AppConstants.languages[index].languageName),
-                    ),
-                  );
-                  if (AppConstants.languages[index].languageCode ==
-                      localizationController.locale.languageCode) {
-                    index0 = index;
-                  }
-                }
-                return DropdownButton<int>(
-                  value: index0,
-                  items: languageList,
-                  dropdownColor: Theme.of(context).cardColor,
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  elevation: 0,
-                  iconSize: 30,
-                  underline: const SizedBox(),
-                  onChanged: (int? index) {
-                    localizationController.setLanguage(
-                      Locale(
-                        AppConstants.languages[index!].languageCode,
-                        AppConstants.languages[index].countryCode,
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-            const SizedBox(width: 20),
-            // Example of CustomImage usage
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: const CustomImage(
-                image: "slslsls",
-                height: 100,
-                width: 200,
-              ),
-            ),
-            const SizedBox(height: 20),
-            // Example of CustomButton usage
-           
-               CustomButton(
-                onTap: () {
-                },
-                text: "Click Me",
-              ),
-            
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 12.h),
+              _homeHeader(),
+              SizedBox(height: 22.h),
+              const ActiveListCard(),
+            ],
+          ).paddingHorizontal(24.w),
         ),
       ),
+    );
+  }
+
+  Column _homeHeader() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            SvgPicture.asset(AppLogos.homelogo, width: 52, height: 52),
+            const SizedBox(width: 12),
+            Text(
+              'All Packed',
+              style: GoogleFonts.inter(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: AppColors.primaryText,
+              ),
+            ),
+            const Spacer(),
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                SvgPicture.asset(
+                  AppLogos.homenotification,
+                  width: 24,
+                  height: 24,
+                ),
+                Positioned(
+                  right: 0,
+                  top: -10,
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: AppColors.errorColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Text(
+                      '3',
+                      style: GoogleFonts.inter(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+
+        const SizedBox(height: 12),
+
+        Column(
+          children: [
+            Text(
+              'Good evening, Heather.',
+              style: GoogleFonts.sora(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: AppColors.primaryText,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Everything you need, packed and ready',
+              style: GoogleFonts.sora(
+                fontSize: 12,
+                color: AppColors.secondaryText,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
