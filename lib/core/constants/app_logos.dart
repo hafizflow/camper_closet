@@ -22,4 +22,9 @@ class AppLogos {
   static const String scan = 'assets/logos/scan.svg';
   static const String homelogo = 'assets/logos/homelogo.svg';
   static const String homenotification = 'assets/logos/notification.svg';
+  static const String list = 'assets/logos/list.svg';
+  static const String gear = 'assets/logos/gear.svg';
+  static const String camera = 'assets/logos/camera.svg';
+  static const String clothes = 'assets/logos/clothes.svg';
+  static const String toiletries = 'assets/logos/toiletries.svg';
 }

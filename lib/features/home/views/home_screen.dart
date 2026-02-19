@@ -4,6 +4,7 @@ import 'package:flutter_extension/core/constants/app_colors.dart';
 import 'package:flutter_extension/core/constants/app_logos.dart';
 import 'package:flutter_extension/features/home/controllers/home_controller.dart';
 import 'package:flutter_extension/features/home/widgets/active_list_card.dart';
+import 'package:flutter_extension/features/home/widgets/my_closet_card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -31,6 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
               _homeHeader(),
               SizedBox(height: 22.h),
               const ActiveListCard(),
+              SizedBox(height: 30.h),
+              const MyClosetCard(),
             ],
           ).paddingHorizontal(24.w),
         ),

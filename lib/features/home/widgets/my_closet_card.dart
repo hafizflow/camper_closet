@@ -1,0 +1,187 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/constants/app_colors.dart';
+import 'package:flutter_extension/core/constants/app_logos.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class MyClosetCard extends StatelessWidget {
+  const MyClosetCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(32.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'My Closet',
+            style: GoogleFonts.sora(
+              fontSize: 20.sp,
+              fontWeight: FontWeight.w600,
+              color: AppColors.primaryText,
+            ),
+          ),
+          SizedBox(height: 24.h),
+          Text(
+            '42',
+            style: GoogleFonts.sora(
+              fontSize: 48.sp,
+              fontWeight: FontWeight.w700,
+              color: AppColors.primaryText,
+            ),
+          ),
+          SizedBox(height: 4.h),
+          Text(
+            'items saved',
+            style: GoogleFonts.inter(
+              fontSize: 16.sp,
+              color: AppColors.secondaryText,
+            ),
+          ),
+          SizedBox(height: 24.h),
+
+          // Closet Categories
+          _buildCategoryItem(
+            AppLogos.clothes,
+            'Clothes',
+            '24',
+            AppColors.buttonPrimaryColor,
+          ),
+          _buildCategoryItem(
+            AppLogos.toiletries,
+            'Toiletries',
+            '12',
+            const Color(0xFF9810FA),
+          ),
+          _buildCategoryItem(
+            AppLogos.gear,
+            'Gear',
+            '6',
+            const Color(0xFFEC003F),
+          ),
+
+          SizedBox(height: 24.h),
+
+          // Action Buttons
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    side: BorderSide(color: Colors.blueGrey[50]!),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.r),
+                    ),
+                  ),
+                  child: Text(
+                    'View All Clothes',
+                    style: GoogleFonts.inter(
+                      fontSize: 14.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(width: 12.w),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF4A90E2), Color(0xFF357ABD)],
+                    ),
+                    borderRadius: BorderRadius.circular(16.r),
+                  ),
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      AppLogos.camera,
+                      width: 18,
+                      height: 18,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.white,
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                    label: Text(
+                      'Scan Item',
+                      style: GoogleFonts.inter(
+                        fontSize: 14.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      padding: EdgeInsets.symmetric(vertical: 16.h),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCategoryItem(
+    String icon,
+    String label,
+    String count,
+    Color color,
+  ) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10.h),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 22.r,
+            backgroundColor: color.withValues(alpha: 0.15),
+            child: SvgPicture.asset(
+              icon,
+              width: 20,
+              height: 20,
+              colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+            ),
+          ),
+          SizedBox(width: 16.w),
+          Text(
+            label,
+            style: GoogleFonts.sora(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w700,
+              color: AppColors.primaryText,
+            ),
+          ),
+          const Spacer(),
+          Text(
+            count,
+            style: GoogleFonts.inter(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w700,
+              color: AppColors.primaryText,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

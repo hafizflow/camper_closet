@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/core/constants/app_colors.dart';
+import 'package:flutter_extension/core/constants/app_logos.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ActiveListCard extends StatelessWidget {
@@ -60,10 +62,14 @@ class ActiveListCard extends StatelessWidget {
                   color: Colors.white.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(
-                  Icons.assignment_outlined,
-                  color: Colors.white,
-                  size: 20.w,
+                child: SvgPicture.asset(
+                  AppLogos.list,
+                  width: 16,
+                  height: 16,
+                  colorFilter: const ColorFilter.mode(
+                    Colors.white,
+                    BlendMode.srcIn,
+                  ),
                 ),
               ),
             ],
