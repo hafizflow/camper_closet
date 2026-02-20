@@ -11,7 +11,7 @@ class ShopNowBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
         color: const Color(0xFFE6F4EF),
         borderRadius: BorderRadius.circular(32.r),
@@ -28,7 +28,7 @@ class ShopNowBanner extends StatelessWidget {
                 Text(
                   'Need anything?',
                   style: GoogleFonts.sora(
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

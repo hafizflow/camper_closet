@@ -4,9 +4,11 @@ import 'package:flutter_extension/core/constants/app_colors.dart';
 import 'package:flutter_extension/core/constants/app_logos.dart';
 import 'package:flutter_extension/features/home/controllers/home_controller.dart';
 import 'package:flutter_extension/features/home/widgets/active_list_card.dart';
+import 'package:flutter_extension/features/home/widgets/event_card.dart';
 import 'package:flutter_extension/features/home/widgets/my_closet_card.dart';
 import 'package:flutter_extension/features/home/widgets/shop_now_banner.dart';
 import 'package:flutter_extension/features/home/widgets/templae_card.dart';
+import 'package:flutter_extension/shared/widgets/section_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -37,37 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 30.h),
               const MyClosetCard(),
               SizedBox(height: 30.h),
-              templateCard(),
+              _templateCard(),
               SizedBox(height: 40.h),
               const ShopNowBanner(),
+
               SizedBox(height: 30.h),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Upcoming Events',
-                        style: GoogleFonts.sora(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.primaryText,
-                        ),
-                      ),
-                      const Spacer(),
-                      Text(
-                        'View All',
-                        style: GoogleFonts.inter(
-                          fontSize: 12.sp,
-                          color: AppColors.buttonPrimaryColor,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20.h),
-                  EventCard(),
-                ],
-              ),
+              _upcomingEvent(),
               SizedBox(height: 20.h),
             ],
           ).paddingHorizontal(24.w),
@@ -76,29 +53,31 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Column templateCard() {
+  Column _upcomingEvent() {
     return Column(
       children: [
-        Row(
-          children: [
-            Text(
-              'Templates',
-              style: GoogleFonts.sora(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w600,
-                color: AppColors.primaryText,
-              ),
-            ),
-            const Spacer(),
-            Text(
-              'View All',
-              style: GoogleFonts.inter(
-                fontSize: 12.sp,
-                color: AppColors.buttonPrimaryColor,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
+        SectionHeader(
+          title: 'Upcoming Events',
+          actionText: 'View All',
+          onActionTap: () {
+            // navigate or handle click
+          },
+        ),
+        SizedBox(height: 20.h),
+        const EventCard(),
+        SizedBox(height: 80.h),
+      ],
+    );
+  }
+
+  Column _templateCard() {
+    return Column(
+      children: [
+        SectionHeader(
+          title: 'Templates',
+          onActionTap: () {
+            // navigate or handle click
+          },
         ),
         SizedBox(height: 20.h),
         const Row(
@@ -199,159 +178,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ],
-    );
-  }
-}
-
-class EventCard extends StatelessWidget {
-  const EventCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 400, // Fixed width for demonstration
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(40),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Date Box
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF7F4FF),
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                child: Column(
-                  children: const [
-                    Text(
-                      'JUL',
-                      style: TextStyle(
-                        color: Color(0xFF7B52E8),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                      ),
-                    ),
-                    Text(
-                      '15',
-                      style: TextStyle(
-                        color: Color(0xFF7B52E8),
-                        fontWeight: FontWeight.w800,
-                        fontSize: 24,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 16),
-              // Text Content
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Summer Camp Start',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF1E2D3D),
-                      ),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      'Camp Green Lake, TX',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Color(0xFF8E99A3),
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              // Priority Badge
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFF1F0),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Text(
-                  'Priority',
-                  style: TextStyle(
-                    color: Color(0xFFD94436),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          // Gradient Button
-          Container(
-            width: double.infinity,
-            height: 64,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-              gradient: const LinearGradient(
-                colors: [Color(0xFF5E9EFF), Color(0xFF3B7DED)],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: const Color(0xFF3B7DED).withOpacity(0.4),
-                  blurRadius: 15,
-                  offset: const Offset(0, 6),
-                ),
-              ],
-            ),
-            child: ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.calendar_today_outlined,
-                color: Colors.white,
-                size: 20,
-              ),
-              label: const Text(
-                'Open Calendar',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                shadowColor: Colors.transparent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

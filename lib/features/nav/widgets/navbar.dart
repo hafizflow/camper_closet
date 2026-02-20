@@ -81,7 +81,7 @@ class NavBar extends StatelessWidget {
 
             // ── Floating scan button — centered, overflows upward ────────────
             Positioned(
-              bottom: _barHeight - _fabSize / 2 + _fabOverlap,
+              bottom: _barHeight - _fabSize / 1.5 + _fabOverlap,
               child: GestureDetector(
                 onTap: ctrl.onScanPressed,
                 child: Container(

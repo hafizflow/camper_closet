@@ -32,28 +32,30 @@ class ActiveListCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'ACTIVE LIST',
-                    style: GoogleFonts.sora(
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1,
-                      color: const Color(0xFF51A2FF),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'ACTIVE LIST',
+                      style: GoogleFonts.sora(
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1,
+                        color: const Color(0xFF51A2FF),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 4.h),
-                  Text(
-                    'Summer Camp – July',
-                    style: GoogleFonts.sora(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                    SizedBox(height: 4.h),
+                    Text(
+                      'Summer Camp – July',
+                      style: GoogleFonts.sora(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               // Circular Icon Button
               Container(
