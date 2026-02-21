@@ -84,7 +84,7 @@ class MyClosetCard extends StatelessWidget {
                   onPressed: () {},
                   style: OutlinedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 16.h),
-                    side: BorderSide(color: Colors.blueGrey[50]!),
+                    side: const BorderSide(color: Color(0xFFDBEBFF)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16.r),
                     ),
@@ -93,7 +93,7 @@ class MyClosetCard extends StatelessWidget {
                     'View All Clothes',
                     style: GoogleFonts.inter(
                       fontSize: 14.sp,
-                      color: Colors.black,
+                      color: AppColors.primaryText,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -103,17 +103,15 @@ class MyClosetCard extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF4A90E2), Color(0xFF357ABD)],
-                    ),
+                    color: AppColors.buttonPrimaryColor,
                     borderRadius: BorderRadius.circular(16.r),
                   ),
                   child: ElevatedButton.icon(
                     onPressed: () {},
                     icon: SvgPicture.asset(
                       AppLogos.camera,
-                      width: 18,
-                      height: 18,
+                      width: 22,
+                      height: 22,
                       colorFilter: const ColorFilter.mode(
                         Colors.white,
                         BlendMode.srcIn,

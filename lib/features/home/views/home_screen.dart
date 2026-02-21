@@ -42,7 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
               _templateCard(),
               SizedBox(height: 40.h),
               const ShopNowBanner(),
-
               SizedBox(height: 30.h),
               _upcomingEvent(),
               SizedBox(height: 20.h),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/features/closet/demo.dart';
 import 'package:flutter_extension/features/nav/widgets/navbar.dart';
 import 'package:get/get.dart';
 import 'package:flutter_extension/features/nav/controllers/nav_controller.dart';
@@ -14,7 +15,8 @@ class NavScreen extends StatelessWidget {
     // Swap placeholders with real screens as you build them
     final List<Widget> pages = [
       const HomeScreen(),
-      const _Placeholder(label: 'Closet'),
+      const MyItemsPage(),
+      // const _Placeholder(label: 'Closet'),
       const _Placeholder(label: 'Calendar'),
       const _Placeholder(label: 'Profile'),
     ];
