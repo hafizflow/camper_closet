@@ -27,4 +27,6 @@ class AppLogos {
   static const String camera = 'assets/logos/camera.svg';
   static const String clothes = 'assets/logos/clothes.svg';
   static const String toiletries = 'assets/logos/toiletries.svg';
+  static const String search = 'assets/logos/search.svg';
+  static const String template = 'assets/logos/template.svg';
 }

@@ -75,7 +75,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
+            ).paddingBottom(60.h),
           ],
         ).paddingHorizontal(AppSizes.defaultPadding.w),
       ),

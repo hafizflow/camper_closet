@@ -28,8 +28,8 @@ class ResetPasswordController extends GetxController {
     if (password.isEmpty) {
       passwordError.value = 'Password is required';
       isValid = false;
-    } else if (password.length < 8) {
-      passwordError.value = 'Password must be at least 8 characters';
+    } else if (password.length < 3) {
+      passwordError.value = 'Password must be at least 3 characters';
       isValid = false;
     } else {
       passwordError.value = '';

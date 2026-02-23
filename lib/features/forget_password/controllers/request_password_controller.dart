@@ -36,7 +36,7 @@ class RequestPasswordController extends GetxController {
     }
 
     emailError.value = '';
-    Get.toNamed(AppPages.otpScreen);
+    Get.offNamed(AppPages.otpScreen);
     return true;
   }
 

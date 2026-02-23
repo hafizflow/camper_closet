@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
@@ -77,8 +78,7 @@ class LoginController extends GetxController {
         duration: const Duration(seconds: 2),
       );
 
-      // Navigate to home screen
-      // Get.offAllNamed(AppPages.homeScreen);
+      Get.offAllNamed(AppPages.navbarScreen);
     } catch (e) {
       Get.snackbar(
         'Error',

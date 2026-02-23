@@ -61,7 +61,7 @@ class AppRoutes {
       name: AppPages.loginScreen,
       page: () => const LoginScreen(),
       binding: BindingsBuilder(() {
-        Get.lazyPut(() => LoginController());
+        Get.lazyPut(() => LoginController(), fenix: true);
       }),
     ),
     GetPage(
