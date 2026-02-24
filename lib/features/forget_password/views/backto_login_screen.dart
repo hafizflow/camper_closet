@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/core/constants/app_colors.dart';
 import 'package:flutter_extension/core/constants/app_logos.dart';
-import 'package:flutter_extension/core/routes/app_pages.dart';
 import 'package:flutter_extension/shared/utils/app_style.dart';
 import 'package:flutter_extension/shared/widgets/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
