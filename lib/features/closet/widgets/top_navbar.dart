@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/constants/app_logos.dart';
 import 'package:flutter_extension/features/closet/widgets/nav_tab.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TopNav extends StatelessWidget {
   const TopNav({super.key});
@@ -7,39 +9,14 @@ class TopNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(14),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        padding: const EdgeInsets.all(4),
-        child: const Row(
-          children: [
-            NavTab(
-              label: 'My Items',
-              icon: Icons.checkroom_outlined,
-              active: true,
-            ),
-            NavTab(
-              label: 'Templates',
-              icon: Icons.layers_outlined,
-              active: false,
-            ),
-            NavTab(
-              label: 'My Lists',
-              icon: Icons.list_alt_outlined,
-              active: false,
-            ),
-          ],
-        ),
+      padding: EdgeInsets.fromLTRB(24.w, 22.h, 24.w, 8.h),
+      child: Row(
+        spacing: 10.w,
+        children: const [
+          NavTab(label: 'My Items', icon: AppLogos.clothes, active: true),
+          NavTab(label: 'Templates', icon: AppLogos.template, active: false),
+          NavTab(label: 'My Lists', icon: AppLogos.list, active: false),
+        ],
       ),
     );
   }

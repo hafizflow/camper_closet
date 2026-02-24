@@ -14,7 +14,6 @@ class ClosetScreen extends StatelessWidget {
     final ctrl = Get.put(ItemsController());
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F6FB),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

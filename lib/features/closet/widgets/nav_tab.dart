@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/constants/app_colors.dart';
+import 'package:flutter_inner_shadow/flutter_inner_shadow.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NavTab extends StatelessWidget {
   final String label;
-  final IconData icon;
+  final String icon;
   final bool active;
 
   const NavTab({
@@ -15,31 +20,49 @@ class NavTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        decoration: BoxDecoration(
-          color: active ? const Color(0xFF1A73E8) : Colors.transparent,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: 16,
-              color: active ? Colors.white : const Color(0xFF8E9BB5),
-            ),
-            const SizedBox(width: 6),
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                color: active ? Colors.white : const Color(0xFF8E9BB5),
+      child: InnerShadow(
+        shadows: [
+          Shadow(
+            color: AppColors.buttonPrimaryColor.withValues(alpha: 0.3),
+            blurRadius: 15,
+          ),
+        ],
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 10.w),
+          decoration: BoxDecoration(
+            color: active ? AppColors.buttonPrimaryColor : Colors.white,
+            borderRadius: BorderRadius.circular(16.r),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                icon,
+                width: 16.w,
+                height: 16.h,
+                colorFilter: ColorFilter.mode(
+                  active ? Colors.white : AppColors.primaryText,
+                  BlendMode.srcIn,
+                ),
               ),
-            ),
-          ],
+              SizedBox(width: 5.w),
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    label,
+                    style: GoogleFonts.inter(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w500,
+                      color: active ? Colors.white : AppColors.primaryText,
+                    ),
+                    maxLines: 1,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
