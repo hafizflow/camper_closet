@@ -23,41 +23,45 @@ class FilterBar extends StatelessWidget {
           separatorBuilder: (_, __) => SizedBox(width: 10.w),
           itemBuilder: (_, i) {
             final tab = tabs[i];
-            final active = ctrl.selectedFilter.value == tab;
             final count = ctrl.countFor(tab);
-            return GestureDetector(
-              onTap: () => ctrl.setFilter(tab),
-              child: InnerShadow(
-                shadows: [
-                  Shadow(
-                    color: AppColors.successColor.withValues(alpha: 0.4),
-                    blurRadius: 15,
-                  ),
-                ],
-                child: AnimatedContainer(
-                  width: 75.w,
-                  height: 32.h,
-                  duration: const Duration(milliseconds: 180),
-                  decoration: BoxDecoration(
-                    color: active ? AppColors.successColor : Colors.white,
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "$tab ($count)",
-                        style: GoogleFonts.inter(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                          color: active ? Colors.white : AppColors.primaryText,
+            return Obx(() {
+              final active = ctrl.selectedFilter.value == tab;
+              return GestureDetector(
+                onTap: () => ctrl.setFilter(tab),
+                child: InnerShadow(
+                  shadows: [
+                    Shadow(
+                      color: AppColors.successColor.withValues(alpha: 0.4),
+                      blurRadius: 15,
+                    ),
+                  ],
+                  child: AnimatedContainer(
+                    width: 75.w,
+                    height: 32.h,
+                    duration: const Duration(milliseconds: 180),
+                    decoration: BoxDecoration(
+                      color: active ? AppColors.successColor : Colors.white,
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "$tab ($count)",
+                          style: GoogleFonts.inter(
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w500,
+                            color: active
+                                ? Colors.white
+                                : AppColors.primaryText,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            );
+              );
+            });
           },
         ),
       );

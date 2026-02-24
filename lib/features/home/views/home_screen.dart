@@ -32,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 12.h),
               _homeHeader(),
               SizedBox(height: 22.h),
               const ActiveListCard(),
@@ -46,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _upcomingEvent(),
               SizedBox(height: 20.h),
             ],
-          ).paddingHorizontal(24.w),
+          ).paddingHorizontal(24.w).paddingTop(12.h),
         ),
       ),
     );

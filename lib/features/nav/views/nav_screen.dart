@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/features/calendar/views/calendar_screen.dart';
 import 'package:flutter_extension/features/closet/views/closet.dart';
 import 'package:flutter_extension/features/nav/widgets/navbar.dart';
 import 'package:get/get.dart';
@@ -16,8 +17,7 @@ class NavScreen extends StatelessWidget {
     final List<Widget> pages = [
       const HomeScreen(),
       const ClosetScreen(),
-      // const _Placeholder(label: 'Closet'),
-      const _Placeholder(label: 'Calendar'),
+      const CalendarScreen(),
       const _Placeholder(label: 'Profile'),
     ];
 
