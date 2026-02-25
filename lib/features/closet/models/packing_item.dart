@@ -9,6 +9,10 @@ class PackingItem {
   final int quantity;
   final Color dotColor;
   final String imageUrl;
+  // ── New fields for detail screen
+  final String size;
+  final List<String> usedIn;
+  final String lastUsed;
 
   PackingItem({
     required this.id,
@@ -19,6 +23,9 @@ class PackingItem {
     required this.quantity,
     required this.dotColor,
     required this.imageUrl,
+    this.size = '',
+    this.usedIn = const [],
+    this.lastUsed = '',
   });
 
   factory PackingItem.fromJson(Map<String, dynamic> json) => PackingItem(
@@ -30,5 +37,9 @@ class PackingItem {
     quantity: json['quantity'],
     dotColor: Color(json['color']),
     imageUrl: json['imageUrl'],
+    // ── New fields (with fallbacks so existing code won't break)
+    size: json['size'] ?? '',
+    usedIn: List<String>.from(json['usedIn'] ?? []),
+    lastUsed: json['lastUsed'] ?? '',
   );
 }

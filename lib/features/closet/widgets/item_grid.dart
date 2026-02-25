@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/features/closet/controllers/item_controller.dart';
+import 'package:flutter_extension/features/closet/views/item_detail_screen.dart';
 import 'package:flutter_extension/features/closet/widgets/item_card.dart';
 import 'package:get/get.dart';
 
@@ -35,7 +36,12 @@ class ItemsGrid extends StatelessWidget {
           childAspectRatio: 0.7,
         ),
         itemCount: items.length,
-        itemBuilder: (_, i) => ItemCard(item: items[i]),
+        itemBuilder: (_, i) => GestureDetector(
+          onTap: () {
+            Get.to(() => ItemDetailScreen(item: items[i]));
+          },
+          child: ItemCard(item: items[i]),
+        ),
       );
     });
   }

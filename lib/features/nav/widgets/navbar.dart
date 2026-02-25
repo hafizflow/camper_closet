@@ -11,7 +11,6 @@ import 'package:flutter_extension/features/nav/controllers/nav_controller.dart';
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
 
-  static const double _fabSize = 60.0;
   static const double _fabOverlap = 20.0;
   static const double _barHeight = 66.0;
 
@@ -73,34 +72,6 @@ class NavBar extends StatelessWidget {
                         ),
                         const SizedBox(width: 12),
                       ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            // ── Floating scan button — centered, overflows upward ────────────
-            Positioned(
-              bottom: _barHeight - _fabSize / 3 + _fabOverlap,
-              child: GestureDetector(
-                onTap: ctrl.onScanPressed,
-                child: Container(
-                  width: _fabSize + 8,
-                  height: _fabSize + 8,
-                  decoration: BoxDecoration(
-                    color: AppColors.buttonPrimaryColor,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white, width: 4),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: SvgPicture.asset(
-                      AppLogos.scan,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.white,
-                        BlendMode.srcIn,
-                      ),
-                      fit: BoxFit.contain,
                     ),
                   ),
                 ),

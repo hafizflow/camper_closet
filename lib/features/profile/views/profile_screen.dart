@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/features/profile/views/manage_user_screen.dart';
+import 'package:flutter_extension/features/profile/views/personal_info_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -115,11 +116,12 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    const _MenuItem(
+                    _MenuItem(
                       icon: Icons.person_outline_rounded,
-                      iconColor: Color(0xFF2B7FFF),
+                      iconColor: const Color(0xFF2B7FFF),
                       label: 'Personal Information',
                       isFirst: true,
+                      onTap: () => Get.to(() => const PersonalInfoScreen()),
                     ),
                     _Divider(),
                     _MenuItem(

@@ -70,7 +70,7 @@ class NavScreen extends StatelessWidget {
                 ),
               ),
             ),
-          ).paddingBottom(32),
+          ).paddingBottom(0),
 
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,

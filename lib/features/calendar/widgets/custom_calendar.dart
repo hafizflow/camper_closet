@@ -45,7 +45,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
   List<DateTime?> _buildCalendarDays() {
     final firstDay = DateTime(_focusedMonth.year, _focusedMonth.month, 1);
     final lastDay = DateTime(_focusedMonth.year, _focusedMonth.month + 1, 0);
-    final startOffset = firstDay.weekday % 7; // Sunday = 0
+    final startOffset = firstDay.weekday % 7; 
 
     final days = <DateTime?>[];
     for (int i = 0; i < startOffset; i++) {
@@ -57,12 +57,12 @@ class _CustomCalendarState extends State<CustomCalendar> {
     return days;
   }
 
-  bool _isToday(DateTime date) {
-    final now = DateTime.now();
-    return date.year == now.year &&
-        date.month == now.month &&
-        date.day == now.day;
-  }
+  // bool _isToday(DateTime date) {
+  //   final now = DateTime.now();
+  //   return date.year == now.year &&
+  //       date.month == now.month &&
+  //       date.day == now.day;
+  // }
 
   bool _isSelected(DateTime date) {
     return _selectedDate != null &&
@@ -161,7 +161,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
               if (date == null) return const SizedBox();
 
               final selected = _isSelected(date);
-              final today = _isToday(date);
+              // final today = _isToday(date);
               final marked = _isMarked(date);
 
               return GestureDetector(

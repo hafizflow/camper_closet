@@ -1,4 +1,3 @@
-// ── Demo data ────────────────────────────────────────────────────────────────
 const List<Map<String, dynamic>> demoItems = [
   {
     "id": 1,
@@ -10,6 +9,9 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFF2196F3,
     "imageUrl":
         "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80",
+    "size": "M",
+    "usedIn": ["Summer Camp 2020", "Weekend Getaway"],
+    "lastUsed": "Summer Camp 2025",
   },
   {
     "id": 2,
@@ -21,6 +23,9 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFFE53935,
     "imageUrl":
         "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80",
+    "size": "8",
+    "usedIn": ["Mountain Trip 2023", "Trail Run 2024"],
+    "lastUsed": "Trail Run 2024",
   },
   {
     "id": 3,
@@ -32,6 +37,9 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFFFF9800,
     "imageUrl":
         "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&q=80",
+    "size": "6OZ",
+    "usedIn": ["Beach Vacation 2023", "Summer Camp 2024"],
+    "lastUsed": "Summer Camp 2024",
   },
   {
     "id": 4,
@@ -43,6 +51,9 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFF43A047,
     "imageUrl":
         "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&q=80",
+    "size": "ADULT",
+    "usedIn": ["Camping 2022", "Scout Trip 2023", "Family Camping 2024"],
+    "lastUsed": "Family Camping 2024",
   },
   {
     "id": 5,
@@ -54,6 +65,9 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFF2196F3,
     "imageUrl":
         "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80",
+    "size": "L",
+    "usedIn": ["Mountain Trip 2023", "Weekend Getaway"],
+    "lastUsed": "Weekend Getaway 2025",
   },
   {
     "id": 6,
@@ -65,6 +79,9 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFFFF9800,
     "imageUrl":
         "https://images.unsplash.com/photo-1585232352617-c2d18b91b6e2?w=400&q=80",
+    "size": "12OZ",
+    "usedIn": ["Beach Vacation 2023"],
+    "lastUsed": "Beach Vacation 2023",
   },
   {
     "id": 7,
@@ -76,6 +93,9 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFF43A047,
     "imageUrl":
         "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&q=80",
+    "size": "ONE SIZE",
+    "usedIn": ["Camping 2022", "Cave Tour 2024"],
+    "lastUsed": "Cave Tour 2024",
   },
   {
     "id": 8,
@@ -87,6 +107,9 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFF2196F3,
     "imageUrl":
         "https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=400&q=80",
+    "size": "M",
+    "usedIn": ["Trail Run 2024", "Mountain Trip 2023"],
+    "lastUsed": "Trail Run 2024",
   },
   {
     "id": 9,
@@ -98,5 +121,8 @@ const List<Map<String, dynamic>> demoItems = [
     "color": 0xFFFF9800,
     "imageUrl":
         "https://images.unsplash.com/photo-1559591937-abc68c8e9b8a?w=400&q=80",
+    "size": "STANDARD",
+    "usedIn": ["Beach Vacation 2023", "Summer Camp 2024", "Weekend Getaway"],
+    "lastUsed": "Weekend Getaway 2025",
   },
 ];
