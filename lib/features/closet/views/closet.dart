@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/features/closet/controllers/closet_tab_controller.dart';
 import 'package:flutter_extension/features/closet/controllers/item_controller.dart';
+import 'package:flutter_extension/features/closet/views/my_list_screen.dart';
+import 'package:flutter_extension/features/closet/views/template_screen.dart';
 import 'package:flutter_extension/features/closet/widgets/closet_header.dart';
 import 'package:flutter_extension/features/closet/widgets/filterbar.dart';
 import 'package:flutter_extension/features/closet/widgets/item_grid.dart';
@@ -11,7 +14,8 @@ class ClosetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ctrl = Get.put(ItemsController());
+    final itemsCtrl = Get.put(ItemsController());
+    final tabCtrl = Get.put(ClosetTabController());
 
     return Scaffold(
       body: SafeArea(
@@ -20,8 +24,23 @@ class ClosetScreen extends StatelessWidget {
           children: [
             const ClosetHeader(),
             const TopNav(),
-            FilterBar(ctrl: ctrl),
-            Expanded(child: ItemsGrid(ctrl: ctrl)),
+            Expanded(
+              child: Obx(() {
+                switch (tabCtrl.selectedTab.value) {
+                  case 1:
+                    return const TemplatesScreen();
+                  case 2:
+                    return const MyListsScreen();
+                  default:
+                    return Column(
+                      children: [
+                        FilterBar(ctrl: itemsCtrl),
+                        Expanded(child: ItemsGrid(ctrl: itemsCtrl)),
+                      ],
+                    );
+                }
+              }),
+            ),
           ],
         ),
       ),

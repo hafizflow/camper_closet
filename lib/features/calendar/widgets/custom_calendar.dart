@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomCalendar extends StatefulWidget {
   final DateTime? selectedDate;
-  final DateTime? markedDate;
+  final Set<DateTime>? markedDate;
   final ValueChanged<DateTime>? onDateSelected;
 
   const CustomCalendar({
@@ -72,12 +72,10 @@ class _CustomCalendarState extends State<CustomCalendar> {
   }
 
   bool _isMarked(DateTime date) {
-    final marked = widget.markedDate;
-    return marked != null &&
-        date.year == marked.year &&
-        date.month == marked.month &&
-        date.day == marked.day;
-  }
+  return widget.markedDate?.any((m) =>
+    m.year == date.year && m.month == date.month && m.day == date.day
+  ) ?? false;
+}
 
   @override
   Widget build(BuildContext context) {
