@@ -1,7 +1,10 @@
 import 'package:exui/exui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/core/constants/app_colors.dart';
+import 'package:flutter_extension/core/constants/app_logos.dart';
+import 'package:flutter_inner_shadow/flutter_inner_shadow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ClosetHeader extends StatelessWidget {
@@ -38,24 +41,23 @@ class ClosetHeader extends StatelessWidget {
         ),
 
         // Custom Search Button
-        Container(
-          height: 56,
-          width: 56,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.blue.withValues(alpha: 0.1),
-                blurRadius: 20,
-                spreadRadius: 5,
-                offset: const Offset(0, 4),
-              ),
-            ],
+        InnerShadow(
+          shadows: [
+            Shadow(
+              color: AppColors.buttonPrimaryColor.withValues(alpha: 0.5),
+              blurRadius: 15,
+            ),
+          ],
+          child: Container(
+            padding: EdgeInsets.all(14.w),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            child: SvgPicture.asset(AppLogos.search, width: 20, height: 20),
           ),
-          child: const Icon(Icons.search, size: 28, color: Color(0xFF1E293B)),
         ),
       ],
-    ).paddingHorizontal(24.w);
+    ).paddingHorizontal(24.w).paddingTop(12.h);
   }
 }

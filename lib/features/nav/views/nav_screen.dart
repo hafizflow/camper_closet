@@ -1,6 +1,12 @@
+import 'package:exui/exui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/core/constants/app_colors.dart';
+import 'package:flutter_extension/core/constants/app_logos.dart';
+import 'package:flutter_extension/features/calendar/views/calendar_screen.dart';
 import 'package:flutter_extension/features/closet/views/closet.dart';
 import 'package:flutter_extension/features/nav/widgets/navbar.dart';
+import 'package:flutter_extension/features/profile/views/profile_screen.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter_extension/features/nav/controllers/nav_controller.dart';
 import 'package:flutter_extension/features/home/views/home_screen.dart';
@@ -16,9 +22,8 @@ class NavScreen extends StatelessWidget {
     final List<Widget> pages = [
       const HomeScreen(),
       const ClosetScreen(),
-      // const _Placeholder(label: 'Closet'),
-      const _Placeholder(label: 'Calendar'),
-      const _Placeholder(label: 'Profile'),
+      const CalendarScreen(),
+      const ProfileScreen(),
     ];
 
     return PopScope(
@@ -42,22 +47,35 @@ class NavScreen extends StatelessWidget {
             }),
           ),
           bottomNavigationBar: const NavBar(),
+          floatingActionButton: SizedBox(
+            width: 68,
+            height: 68,
+            child: FloatingActionButton(
+              onPressed: ctrl.onScanPressed,
+              elevation: 0,
+              highlightElevation: 0,
+              backgroundColor: AppColors.buttonPrimaryColor,
+              shape: const CircleBorder(
+                side: BorderSide(color: Colors.white, width: 4),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: SvgPicture.asset(
+                  AppLogos.scan,
+                  colorFilter: const ColorFilter.mode(
+                    Colors.white,
+                    BlendMode.srcIn,
+                  ),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+          ).paddingBottom(32),
+
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
         ),
       ),
-    );
-  }
-}
-
-// ─── Temporary placeholder — delete once real screens exist ──────────────────
-class _Placeholder extends StatelessWidget {
-  final String label;
-  const _Placeholder({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(label), elevation: 0),
-      body: Center(child: Text(label, style: const TextStyle(fontSize: 24))),
     );
   }
 }

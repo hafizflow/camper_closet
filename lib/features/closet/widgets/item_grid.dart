@@ -27,12 +27,12 @@ class ItemsGrid extends StatelessWidget {
       }
 
       return GridView.builder(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
+        padding: const EdgeInsets.fromLTRB(24, 12, 24, 100),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          childAspectRatio: 0.82,
+          crossAxisSpacing: 18,
+          mainAxisSpacing: 18,
+          childAspectRatio: 0.7,
         ),
         itemCount: items.length,
         itemBuilder: (_, i) => ItemCard(item: items[i]),

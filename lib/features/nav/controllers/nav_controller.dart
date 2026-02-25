@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/features/scanner/views/scanner_screen.dart';
 import 'package:get/get.dart';
 
 class NavController extends GetxController {
@@ -27,8 +28,12 @@ class NavController extends GetxController {
   }
 
   void onScanPressed() {
-    //? TODO: open scan screen / bottom-sheet
-    debugPrint('Scan pressed');
+    print('Scan button pressed');
+    Get.to(
+      () => const ScannerScreen(),
+      transition: Transition.downToUp,
+      duration: const Duration(milliseconds: 300),
+    );
   }
 
   bool handleBackPress() {
