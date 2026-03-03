@@ -32,6 +32,7 @@ class TemplatesScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xFFEEF4FF),
                 borderRadius: BorderRadius.circular(20.r),
+                border: Border.all(color: const Color(0xFFE2E8F0)),
               ),
               child: Column(
                 children: [

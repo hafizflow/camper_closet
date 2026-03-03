@@ -97,9 +97,9 @@ class SignupController extends GetxController {
   }
 
   Future<void> validateAndSignup() async {
-    if (!_validateAllFields()) {
-      return;
-    }
+    // if (!_validateAllFields()) {
+    //   return;
+    // }
 
     try {
       isLoading.value = true;

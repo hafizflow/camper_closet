@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/features/profile/views/app_preference_screen.dart';
 import 'package:flutter_extension/features/profile/views/manage_user_screen.dart';
+import 'package:flutter_extension/features/profile/views/notification_screen.dart';
 import 'package:flutter_extension/features/profile/views/personal_info_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -132,17 +134,19 @@ class ProfileScreen extends StatelessWidget {
                       onTap: () => Get.to(() => const ManageUsersScreen()),
                     ),
                     _Divider(),
-                    const _MenuItem(
+                    _MenuItem(
                       icon: Icons.notifications_none_rounded,
-                      iconColor: Color(0xFFF5A623),
+                      iconColor: const Color(0xFFF5A623),
                       label: 'Notifications',
+                      onTap: () => Get.to(() => const NotificationsScreen()),
                     ),
                     _Divider(),
-                    const _MenuItem(
+                    _MenuItem(
                       icon: Icons.settings_outlined,
-                      iconColor: Color(0xFF90A1B9),
+                      iconColor: const Color(0xFF90A1B9),
                       label: 'App Preferences',
                       isLast: true,
+                      onTap: () => Get.to(() => const AppPreferencesScreen()),
                     ),
                   ],
                 ),

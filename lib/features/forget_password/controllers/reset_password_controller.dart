@@ -49,7 +49,7 @@ class ResetPasswordController extends GetxController {
   }
 
   Future<void> validateAndRequestReset() async {
-    if (!_validate()) return;
+    // if (!_validate()) return;
 
     try {
       isLoading.value = true;

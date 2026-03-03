@@ -19,7 +19,7 @@ class OtpController extends GetxController {
   Timer? _timer;
 
   // Default/Expected OTP
-  static const String defaultOtp = '0000';
+  static const String defaultOtp = '';
 
   // Email (you can pass this from previous screen)
   final RxString userEmail = ''.obs;
@@ -69,16 +69,16 @@ class OtpController extends GetxController {
   // Validate and submit OTP
   Future<void> validateAndSubmitOtp() async {
     // Check if OTP is complete
-    if (otpCode.value.length != 4) {
-      Get.snackbar(
-        'Invalid OTP',
-        'Please enter a 4-digit code',
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.red.withValues(alpha: 0.1),
-        colorText: Colors.red,
-      );
-      return;
-    }
+    // if (otpCode.value.length != 4) {
+    //   Get.snackbar(
+    //     'Invalid OTP',
+    //     'Please enter a 4-digit code',
+    //     snackPosition: SnackPosition.BOTTOM,
+    //     backgroundColor: Colors.red.withValues(alpha: 0.1),
+    //     colorText: Colors.red,
+    //   );
+    //   return;
+    // }
 
     try {
       isLoading.value = true;

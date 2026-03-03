@@ -20,20 +20,20 @@ class RequestPasswordController extends GetxController {
   bool _validateEmail() {
     final email = emailController.text.trim();
 
-    if (email.isEmpty) {
-      emailError.value = 'Email is required';
-      return false;
-    }
+    // if (email.isEmpty) {
+    //   emailError.value = 'Email is required';
+    //   return false;
+    // }
 
-    // Basic email regex pattern
-    final emailRegex = RegExp(
-      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-    );
+    // // Basic email regex pattern
+    // final emailRegex = RegExp(
+    //   r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    // );
 
-    if (!emailRegex.hasMatch(email)) {
-      emailError.value = 'Please enter a valid email';
-      return false;
-    }
+    // if (!emailRegex.hasMatch(email)) {
+    //   emailError.value = 'Please enter a valid email';
+    //   return false;
+    // }
 
     emailError.value = '';
     Get.offNamed(AppPages.otpScreen);

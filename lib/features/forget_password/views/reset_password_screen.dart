@@ -25,7 +25,7 @@ class ResetPasswordScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 138.h),
+                SizedBox(height: 108.h),
                 SvgPicture.asset(AppLogos.applogo, width: 100.w, height: 65.h),
                 SizedBox(height: 30.h),
                 Text(

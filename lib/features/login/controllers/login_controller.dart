@@ -25,26 +25,26 @@ class LoginController extends GetxController {
     bool isValid = true;
 
     // Clear previous errors
-    emailError.value = '';
-    passwordError.value = '';
+    // emailError.value = '';
+    // passwordError.value = '';
 
-    // Validate Email
-    if (emailController.text.trim().isEmpty) {
-      emailError.value = 'Please enter your email';
-      isValid = false;
-    } else if (!GetUtils.isEmail(emailController.text.trim())) {
-      emailError.value = 'Please enter a valid email';
-      isValid = false;
-    }
+    // // Validate Email
+    // if (emailController.text.trim().isEmpty) {
+    //   emailError.value = 'Please enter your email';
+    //   isValid = false;
+    // } else if (!GetUtils.isEmail(emailController.text.trim())) {
+    //   emailError.value = 'Please enter a valid email';
+    //   isValid = false;
+    // }
 
-    // Validate Password
-    if (passwordController.text.isEmpty) {
-      passwordError.value = 'Please enter a password';
-      isValid = false;
-    } else if (passwordController.text.length < 8) {
-      passwordError.value = 'Password must be at least 8 characters';
-      isValid = false;
-    }
+    // // Validate Password
+    // if (passwordController.text.isEmpty) {
+    //   passwordError.value = 'Please enter a password';
+    //   isValid = false;
+    // } else if (passwordController.text.length < 8) {
+    //   passwordError.value = 'Password must be at least 8 characters';
+    //   isValid = false;
+    // }
 
     return isValid;
   }
